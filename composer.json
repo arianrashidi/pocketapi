@@ -1,0 +1,54 @@
+{
+    "name": "arianrashidi/pocketapi",
+    "type": "library",
+    "description": "A simple PHP wrapper for the Pocket API.",
+    "keywords": [
+        "arianrashidi",
+        "pocket-api",
+        "pocketapi",
+        "pocket",
+        "read it later",
+        "api"
+    ],
+    "homepage": "https://github.com/ArianRashidi/PocketApi",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Arian Rashidi",
+            "email": "f-code@ari.yt",
+            "homepage": "https://ari.yt",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "~7.0",
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "~4.0||~5.0",
+        "squizlabs/php_codesniffer": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "ArianRashidi\\PocketApi\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ArianRashidi\\PocketApi\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "check-style": "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests",
+        "fix-style": "phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
