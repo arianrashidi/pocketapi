@@ -4,11 +4,8 @@ php:
   - 7.0
   - 7.1
 
-# This triggers builds to run on the new TravisCI infrastructure.
-# See: http://docs.travis-ci.com/user/workers/container-based-infrastructure/
 sudo: false
 
-## Cache composer
 cache:
   directories:
     - $HOME/.composer/cache
@@ -23,4 +20,4 @@ script:
 
 after_script:
   - wget https://scrutinizer-ci.com/ocular.phar
-  - if [ "$TRAVIS_PHP_VERSION" != "hhvm" ]; then php ocular.phar code-coverage:upload --format=php-clover coverage.xml; fi
+  - php ocular.phar code-coverage:upload --format=php-clover coverage.xml
