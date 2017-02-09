@@ -7,7 +7,7 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-A simple PHP wrapper for the [Pocket](https://getpocket.com) API.
+A PHP client for the [Pocket](https://getpocket.com) API.
 
 ## Install
 
