@@ -77,10 +77,6 @@ $ composer test
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details.
 
-## Security
-
-If you discover any security related issues, please email f-code@ari.yt instead of using the issue tracker.
-
 ## Credits
 
 - [Arian Rashidi][link-author]
@@ -102,5 +98,5 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [link-scrutinizer]: https://scrutinizer-ci.com/g/arianrashidi/pocketapi/code-structure
 [link-code-quality]: https://scrutinizer-ci.com/g/arianrashidi/pocketapi
 [link-downloads]: https://packagist.org/packages/arianrashidi/pocketapi
-[link-author]: https://ari.yt
+[link-author]: https://rashidi.re
 [link-contributors]: ../../contributors
