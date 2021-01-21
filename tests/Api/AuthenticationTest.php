@@ -3,13 +3,14 @@ namespace ArianRashidi\PocketApi\Tests\Api;
 
 use ArianRashidi\PocketApi\Tests\Support\SupportTrait;
 use GuzzleHttp\Psr7\Response;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class AuthenticationTest
  *
  * @package ArianRashidi\PocketApi\Tests\Api
  */
-class AuthenticationTest extends \PHPUnit_Framework_TestCase
+class AuthenticationTest extends TestCase
 {
     use SupportTrait;
 
@@ -25,8 +26,8 @@ class AuthenticationTest extends \PHPUnit_Framework_TestCase
             $this->validKeys['state']
         );
 
-        $this->assertEquals($this->validKeys['request_token'], $result->code);
-        $this->assertEquals($this->validKeys['state'], $result->state);
+        self::assertEquals($this->validKeys['request_token'], $result->code);
+        self::assertEquals($this->validKeys['state'], $result->state);
     }
 
     /**
@@ -39,7 +40,7 @@ class AuthenticationTest extends \PHPUnit_Framework_TestCase
         $expectedUrl .= '&redirect_uri=https://pocket.com';
         $result = $this->authenticationApi()->authorizationUrl($this->validKeys['request_token'], 'https://pocket.com');
 
-        $this->assertEquals($expectedUrl, $result);
+        self::assertEquals($expectedUrl, $result);
     }
 
     /**

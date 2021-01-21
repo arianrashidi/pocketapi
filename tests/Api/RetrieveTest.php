@@ -3,13 +3,14 @@ namespace ArianRashidi\PocketApi\Tests\Api;
 
 use ArianRashidi\PocketApi\Tests\Support\SupportTrait;
 use GuzzleHttp\Psr7\Response;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class RetrieveTest
  *
  * @package ArianRashidi\PocketApi\Tests\Api
  */
-class RetrieveTest extends \PHPUnit_Framework_TestCase
+class RetrieveTest extends TestCase
 {
     use SupportTrait;
 
@@ -55,7 +56,7 @@ class RetrieveTest extends \PHPUnit_Framework_TestCase
 
         $result = $pocket->retrieveApi()->get(['count' => 1]);
 
-        $this->assertEquals($this->responseBody['status'], $result->status);
-        $this->assertTrue(isset($result->list));
+        self::assertEquals($this->responseBody['status'], $result->status);
+        self::assertTrue(isset($result->list));
     }
 }

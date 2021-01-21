@@ -4,13 +4,14 @@ namespace ArianRashidi\PocketApi\Tests\Api;
 use ArianRashidi\PocketApi\Pocket;
 use ArianRashidi\PocketApi\Tests\Support\SupportTrait;
 use ArianRashidi\PocketApi\Tests\Support\TestableApi;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class ApiTest
  *
  * @package ArianRashidi\PocketApi\Tests\Api
  */
-class ApiTest extends \PHPUnit_Framework_TestCase
+class ApiTest extends TestCase
 {
     use SupportTrait;
 
@@ -19,7 +20,7 @@ class ApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testConstructor()
     {
-        $this->assertInstanceOf(TestableApi::class, $this->api(new Pocket($this->validKeys['consumer_key1'])));
+        self::assertInstanceOf(TestableApi::class, $this->api(new Pocket($this->validKeys['consumer_key1'])));
     }
 
     /**
@@ -28,8 +29,8 @@ class ApiTest extends \PHPUnit_Framework_TestCase
     public function testKeys()
     {
         $api = $this->api(new Pocket($this->validKeys['consumer_key1'], $this->validKeys['access_token1']));
-        $this->assertTrue(isset($api->testableKeys()['access_token']));
-        $this->assertTrue(isset($api->testableKeys()['consumer_key']));
+        self::assertTrue(isset($api->testableKeys()['access_token']));
+        self::assertTrue(isset($api->testableKeys()['consumer_key']));
     }
 
     /**

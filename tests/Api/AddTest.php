@@ -3,13 +3,14 @@ namespace ArianRashidi\PocketApi\Tests\Api;
 
 use ArianRashidi\PocketApi\Tests\Support\SupportTrait;
 use GuzzleHttp\Psr7\Response;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class AddTest
  *
  * @package ArianRashidi\PocketApi\Tests\Api
  */
-class AddTest extends \PHPUnit_Framework_TestCase
+class AddTest extends TestCase
 {
     use SupportTrait;
 
@@ -64,13 +65,13 @@ class AddTest extends \PHPUnit_Framework_TestCase
      */
     public function testSingle()
     {
-        $responseBody = json_encode($this->responseBody + $this->mainKeys());
+        $responseBody = json_encode(array_merge($this->responseBody, $this->mainKeys()));
         $pocket = $this->pocketWithHttpClient([new Response(200, [], $responseBody)]);
         $pocket->setAccessToken($this->validKeys['access_token1']);
         $result = $pocket->addApi()->single('http://getpocket.com', 'getpocket.com', ['read', 'later'], '821420170876');
 
-        $this->assertEquals($this->responseBody['status'], $result->status);
-        $this->assertEquals($this->responseBody['item']['normal_url'], $result->item->normal_url);
-        $this->assertTrue(is_array($result->item->authors));
+        self::assertEquals($this->responseBody['status'], $result->status);
+        self::assertEquals($this->responseBody['item']['normal_url'], $result->item->normal_url);
+        self::assertTrue(is_array($result->item->authors));
     }
 }

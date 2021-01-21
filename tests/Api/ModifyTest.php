@@ -3,13 +3,14 @@ namespace ArianRashidi\PocketApi\Tests\Api;
 
 use ArianRashidi\PocketApi\Tests\Support\SupportTrait;
 use GuzzleHttp\Psr7\Response;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class ModifyTest
  *
  * @package ArianRashidi\PocketApi\Tests\Api
  */
-class ModifyTest extends \PHPUnit_Framework_TestCase
+class ModifyTest extends TestCase
 {
     use SupportTrait;
 
@@ -36,7 +37,7 @@ class ModifyTest extends \PHPUnit_Framework_TestCase
             ],
         ]);
 
-        $this->assertTrue(isset($result->status));
-        $this->assertTrue(isset($result->action_results));
+        self::assertTrue(isset($result->status));
+        self::assertTrue(isset($result->action_results));
     }
 }

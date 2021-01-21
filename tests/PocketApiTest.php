@@ -9,6 +9,7 @@ use ArianRashidi\PocketApi\Api\Retrieve;
 use ArianRashidi\PocketApi\PocketException;
 use ArianRashidi\PocketApi\Tests\Support\SupportTrait;
 use GuzzleHttp\Client as GuzzleClient;
+use PHPUnit\Framework\TestCase;
 use \TypeError;
 
 /**
@@ -16,7 +17,7 @@ use \TypeError;
  *
  * @package ArianRashidi\PocketApi\Tests
  */
-class PocketApiTest extends \PHPUnit_Framework_TestCase
+class PocketApiTest extends TestCase
 {
     use SupportTrait;
 
@@ -30,7 +31,7 @@ class PocketApiTest extends \PHPUnit_Framework_TestCase
             $this->validKeys['access_token1'],
             new GuzzleClient()
         );
-        $this->assertInstanceOf(Pocket::class, $pocket);
+        self::assertInstanceOf(Pocket::class, $pocket);
     }
 
     /**
@@ -98,8 +99,8 @@ class PocketApiTest extends \PHPUnit_Framework_TestCase
     {
         $pocket = $this->pocket($this->validKeys['consumer_key1']);
         $pocket->setConsumerKey($this->validKeys['consumer_key2']);
-        $this->assertNotEquals($this->validKeys['consumer_key1'], $pocket->getConsumerKey());
-        $this->assertEquals($this->validKeys['consumer_key2'], $pocket->getConsumerKey());
+        self::assertNotEquals($this->validKeys['consumer_key1'], $pocket->getConsumerKey());
+        self::assertEquals($this->validKeys['consumer_key2'], $pocket->getConsumerKey());
     }
 
     /**
@@ -220,7 +221,7 @@ class PocketApiTest extends \PHPUnit_Framework_TestCase
     public function testModifyApi()
     {
         $modify = $this->pocket($this->validKeys['consumer_key1'], $this->validKeys['access_token1'])->modifyApi();
-        $this->assertInstanceOf(Modify::class, $modify);
+        self::assertInstanceOf(Modify::class, $modify);
         $this->assertException('No Access Token is set. Use setAccessToken().');
         $this->pocket($this->validKeys['consumer_key1'])->modifyApi();
     }
@@ -231,7 +232,7 @@ class PocketApiTest extends \PHPUnit_Framework_TestCase
     public function testRetrieveApi()
     {
         $retrieve = $this->pocket($this->validKeys['consumer_key1'], $this->validKeys['access_token1'])->retrieveApi();
-        $this->assertInstanceOf(Retrieve::class, $retrieve);
+        self::assertInstanceOf(Retrieve::class, $retrieve);
         $this->assertException('No Access Token is set. Use setAccessToken().');
         $this->pocket($this->validKeys['consumer_key1'])->retrieveApi();
     }
